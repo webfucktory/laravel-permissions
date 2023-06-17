@@ -1,12 +1,12 @@
-# Package Name
+# Laravel Permissions
 
-[![Latest Version](http://img.shields.io/packagist/v/webfucktory/laravel-package-name.svg?label=Release&style=for-the-badge)](https://packagist.org/packages/webfucktory/laravel-package-name)
-[![MIT License](https://img.shields.io/github/license/webfucktory/laravel-package-name.svg?label=License&color=blue&style=for-the-badge)](https://github.com/webfucktory/laravel-package-name/blob/master/LICENSE.md)
+[![Latest Version](http://img.shields.io/packagist/v/webfucktory/laravel-permissions.svg?label=Release&style=for-the-badge)](https://packagist.org/packages/webfucktory/laravel-permissions)
+[![MIT License](https://img.shields.io/github/license/webfucktory/laravel-permissions.svg?label=License&color=blue&style=for-the-badge)](https://github.com/webfucktory/laravel-permissions/blob/master/LICENSE.md)
 
 ## Installation
 
 ```shell
-composer require webfucktory/laravel-package-name
+composer require webfucktory/laravel-permissions
 ```
 
 ## Usage

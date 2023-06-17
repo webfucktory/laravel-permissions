@@ -1,6 +1,6 @@
 <?php
 
-namespace Webfucktory\PackageName;
+namespace Webfucktory\LaravelPermissions;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 

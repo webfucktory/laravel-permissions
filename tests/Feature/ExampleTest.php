@@ -1,8 +1,8 @@
 <?php
 
-namespace Webfucktory\PackageName\Tests\Feature;
+namespace Webfucktory\LaravelPermissions\Tests\Feature;
 
-use Webfucktory\PackageName\Tests\TestCase;
+use Webfucktory\LaravelPermissions\Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
