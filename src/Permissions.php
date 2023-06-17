@@ -5,29 +5,16 @@ namespace Webfucktory\LaravelPermissions;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use Webfucktory\LaravelPermissions\Contracts\HasPermissions;
+use Webfucktory\LaravelPermissions\Enums\Permission;
 
 class Permissions
 {
-    protected static array $permissions = [
-        'view',
-        'create',
-        'update',
-        'delete',
-        'restore',
-        'force-delete',
-    ];
-
-    public static function permissions(): array
-    {
-        return static::$permissions;
-    }
-
     public static function registerPermissions(array $models): void
     {
-        foreach (static::permissions() as $permission) {
+        foreach (Permission::cases() as $permission) {
             foreach ($models as $model) {
                 Gate::define(
-                    "$permission:$model",
+                    "$permission->value:$model",
                     fn(HasPermissions $user) => $user::hasPermission($permission, $model)
                 );
             }

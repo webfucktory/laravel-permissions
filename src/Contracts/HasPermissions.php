@@ -2,9 +2,11 @@
 
 namespace Webfucktory\LaravelPermissions\Contracts;
 
+use Webfucktory\LaravelPermissions\Enums\Permission;
+
 interface HasPermissions
 {
-    public static function hasPermission(string $permission, string $model): bool;
+    public static function hasPermission(Permission $permission, string $model): bool;
 
     /**
      * @param class-string<Authorizable> $authorizable
