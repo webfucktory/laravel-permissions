@@ -8,6 +8,9 @@ use Webfucktory\LaravelPermissions\Enums\Permission;
 
 trait HasPermissions
 {
+    /**
+     * @var array<class-string,Permission|array<Permission>>|string
+     */
     protected static array|string $permissions = [];
 
     public static function hasPermission(Permission $permission, string $model): bool

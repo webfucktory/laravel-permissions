@@ -3,7 +3,6 @@
 namespace Webfucktory\LaravelPermissions;
 
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use Webfucktory\LaravelPermissions\Contracts\HasPermissions;
 use Webfucktory\LaravelPermissions\Enums\Permission;
 
