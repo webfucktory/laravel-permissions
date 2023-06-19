@@ -35,6 +35,6 @@ class Permissions
             return true;
         }
 
-        return in_array($permission, $permissions[$model]);
+    return in_array($permission, $permissions);
     }
 }
