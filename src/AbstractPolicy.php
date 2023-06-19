@@ -53,6 +53,8 @@ abstract class AbstractPolicy
 
     public function forceDelete(HasPermissions $user, Authorizable $model): bool
     {
-        return Permissions::authorize($user, Permission::force_delete, $model::class) && $model->canBeForceDeleted($user);
+        return
+            Permissions::authorize($user, Permission::force_delete, $model::class)
+            && $model->canBeForceDeleted($user);
     }
 }

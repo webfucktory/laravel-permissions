@@ -37,5 +37,4 @@ class Permissions
 
         return in_array($permission, $permissions[$model]);
     }
-
 }
