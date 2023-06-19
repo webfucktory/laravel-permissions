@@ -14,7 +14,7 @@ class Permissions
             foreach ($models as $model) {
                 Gate::define(
                     "$permission->value:$model",
-                    fn(HasPermissions $user) => $user::hasPermission($permission, $model)
+                    fn(HasPermissions $user) => static::authorize($user, $permission, $model)
                 );
             }
         }
@@ -26,4 +26,16 @@ class Permissions
             Gate::policy($model, $policy);
         }
     }
+
+    public static function authorize(HasPermissions $user, Permission $permission, string $model): bool
+    {
+        $permissions = $user::getPermissions($model);
+
+        if ($permissions === '*') {
+            return true;
+        }
+
+        return in_array($permission, $permissions[$model]);
+    }
+
 }

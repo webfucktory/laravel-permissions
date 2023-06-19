@@ -17,7 +17,7 @@ abstract class AbstractPolicy
 
     public function viewAny(HasPermissions $user): bool
     {
-        return $user::hasPermission(Permission::view, static::getModel());
+        return Permissions::authorize($user, Permission::view, static::getModel());
     }
 
     public function create(HasPermissions $user): bool
@@ -28,31 +28,31 @@ abstract class AbstractPolicy
          */
         $model = static::getModel();
 
-        return $user::hasPermission(Permission::create, $model) && $model::canBeCreated($user);
+        return Permissions::authorize($user, Permission::create, $model) && $model::canBeCreated($user);
     }
 
     public function view(HasPermissions $user, Authorizable $model): bool
     {
-        return $user::hasPermission(Permission::view, $model::class) && $model->canBeViewed($user);
+        return Permissions::authorize($user, Permission::view, $model::class) && $model->canBeViewed($user);
     }
 
     public function update(HasPermissions $user, Authorizable $model): bool
     {
-        return $user::hasPermission(Permission::update, $model::class) && $model->canBeUpdated($user);
+        return Permissions::authorize($user, Permission::update, $model::class) && $model->canBeUpdated($user);
     }
 
     public function delete(HasPermissions $user, Authorizable $model): bool
     {
-        return $user::hasPermission(Permission::delete, $model::class) && $model->canBeDeleted($user);
+        return Permissions::authorize($user, Permission::delete, $model::class) && $model->canBeDeleted($user);
     }
 
     public function restore(HasPermissions $user, Authorizable $model): bool
     {
-        return $user::hasPermission(Permission::restore, $model::class) && $model->canBeRestored($user);
+        return Permissions::authorize($user, Permission::restore, $model::class) && $model->canBeRestored($user);
     }
 
     public function forceDelete(HasPermissions $user, Authorizable $model): bool
     {
-        return $user::hasPermission(Permission::force_delete, $model::class) && $model->canBeForceDeleted($user);
+        return Permissions::authorize($user, Permission::force_delete, $model::class) && $model->canBeForceDeleted($user);
     }
 }

@@ -2,7 +2,6 @@
 
 namespace Webfucktory\LaravelPermissions\Concerns;
 
-use Illuminate\Support\Arr;
 use Webfucktory\LaravelPermissions\Contracts\Authorizable;
 use Webfucktory\LaravelPermissions\Enums\Permission;
 
@@ -13,21 +12,13 @@ trait HasPermissions
      */
     protected static array|string $permissions = [];
 
-    public static function hasPermission(Permission $permission, string $model): bool
+    public static function getPermissions(string $model): array|string
     {
         if (static::$permissions === '*') {
-            return true;
+            return static::$permissions;
         }
 
-        if (!array_key_exists($model, Arr::wrap(static::$permissions))) {
-            return false;
-        }
-
-        if (static::$permissions[$model] === '*') {
-            return true;
-        }
-
-        return in_array($permission, Arr::wrap(static::$permissions[$model]));
+        return static::$permissions[$model];
     }
 
     public static function canCreate(string $authorizable): bool

@@ -6,7 +6,11 @@ use Webfucktory\LaravelPermissions\Enums\Permission;
 
 interface HasPermissions
 {
-    public static function hasPermission(Permission $permission, string $model): bool;
+    /**
+     * @param class-string $model
+     * @return array<Permission>|string
+     */
+    public static function getPermissions(string $model): array|string;
 
     /**
      * @param class-string<Authorizable> $authorizable
