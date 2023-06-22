@@ -13,3 +13,7 @@ All notable changes will be documented in this file.
 ## 0.1.2 - 2021-06-19
 
 - require `php` ^8.1
+
+## 0.2.0 - 2021-06-22
+
+- refactoring
